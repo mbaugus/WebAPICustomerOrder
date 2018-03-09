@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -177,11 +183,39 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderLinesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803091434220_begin creation of project.cs" />
+    <Compile Include="Migrations\201803091434220_begin creation of project.Designer.cs">
+      <DependentUpon>201803091434220_begin creation of project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803091638071_No more cascading on Deleting customer.cs" />
+    <Compile Include="Migrations\201803091638071_No more cascading on Deleting customer.Designer.cs">
+      <DependentUpon>201803091638071_No more cascading on Deleting customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803091646045_changes.cs" />
+    <Compile Include="Migrations\201803091646045_changes.Designer.cs">
+      <DependentUpon>201803091646045_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803091650041_Hmm.cs" />
+    <Compile Include="Migrations\201803091650041_Hmm.Designer.cs">
+      <DependentUpon>201803091650041_Hmm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803091704160_Orderline integration.cs" />
+    <Compile Include="Migrations\201803091704160_Orderline integration.Designer.cs">
+      <DependentUpon>201803091704160_Orderline integration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AppDbContext.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +272,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Customers\" />
+    <Folder Include="Views\OrderLine\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -252,6 +288,23 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803091434220_begin creation of project.resx">
+      <DependentUpon>201803091434220_begin creation of project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091638071_No more cascading on Deleting customer.resx">
+      <DependentUpon>201803091638071_No more cascading on Deleting customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091646045_changes.resx">
+      <DependentUpon>201803091646045_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091650041_Hmm.resx">
+      <DependentUpon>201803091650041_Hmm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091704160_Orderline integration.resx">
+      <DependentUpon>201803091704160_Orderline integration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
